@@ -5,5 +5,32 @@
     <title>Meu Formulario</title>
   </head>
   <body>
+    <form action="app.php" method="post">
+      <table>
+        <tr><td><label for="nome">Nome:</label></td> <td><input type="text" name="nome"></td></tr>
+        <tr><td><label for="endereco">Endereço:</label></td> <td><input type="text" name="endereco"></td></tr>
+        
+        <tr><td><label for="estado">Estado:</label></td>
+        <td><select name="estado">
+          <option value="PB">Paraiba</option>
+          <option value="PE">Pernambuco</option>
+          <option value="RN">Rio Grande do Norte</option>
+        </select></td></tr>
+        
+        <tr><td><label for="sexo">Sexo:</label></td>
+        <td><input type="radio" name="sexo" value="M"> <label>Masculino</label></td>
+        <td><input type="radio" name="sexo" value="F"> <label>Feminino</label></td></tr>
+        
+        <tr><td><label for="matP">Matérias Preferidas:</label></td>
+        <td><input type="checkbox" name="matP" value="M"> <label>Português</label></td>
+        <td><input type="checkbox" name="matP" value="F"> <label>Java</label></td>
+        <td><input type="checkbox" name="matP" value="M"> <label>Matemática</label></td>
+        <td><input type="checkbox" name="matP" value="F"> <label>PHP</label></td></tr>
+        
+        <tr><td><label for="habilidades">Resumo de suas habilidades:</label></td> <td><textarea name="habilidades"></textarea></td></tr>
+
+        <tr><td><input type="button" value="Enviar!"></td></tr>
+      </table>
+    </form>
   </body>
 </html>
