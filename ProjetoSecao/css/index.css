@@ -1,0 +1,19 @@
+li {
+  display: inline;
+}
+
+ul {
+  list-style-type: none;
+}
+
+header {
+  border: 2px dotted brown;
+}
+
+main {
+  border: 2px dotted red;
+}
+
+footer {
+  border: 2px dotted yellow;
+}
