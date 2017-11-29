@@ -1,0 +1,16 @@
+<div class="container">
+  <ul>
+    <div *ngFor="let usuario of usuarios" class="card-panel">
+      <li>{{usuario.nome}}</li>
+
+      <a class="btn-floating waves-effect waves-light red right" (click)="removerUsuario(usuario.nome)"><i class="material-icons">remove</i></a>
+    </div>
+
+    <p></p>
+    <div class="divider"></div>
+    <p></p>
+
+    <a class="btn-floating waves-effect waves-light green right"><i class="material-icons">add</i></a>
+    <a class="btn-floating waves-effect waves-light green right"><i class="material-icons">edit</i></a>
+  </ul>
+</div>

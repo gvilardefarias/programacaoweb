@@ -1,0 +1,43 @@
+<div class="container">
+  <h2 class="center pink-text text-darken-4">Atualizar Usuário</h2>
+
+  <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s8">
+          <input [(ngModel)]="usuario.nome" name="nome" type="text" class="validate">
+          <label for="nome" class="pink-text text-darken-4">Nome</label>
+        </div>
+        <div class="input-field col s4">
+          <input [(ngModel)]="usuario.dataNascimento" name="dataNascimento" type="text" class="validate">
+          <label for="dataNascimento" class="pink-text text-darken-4">Data de Nascimento (DD/MM/AAAA)</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s6">
+          <input [(ngModel)]="usuario.email" name="email" type="email" class="validate">
+          <label for="email" class="pink-text text-darken-4">Email</label>
+        </div>
+        <div class="input-field col s6">
+          <input [(ngModel)]="usuario.senha" name="senha" type="password" class="validate">
+          <label for="senha" class="pink-text text-darken-4">Senha</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s10">
+          <input [(ngModel)]="usuario.profissao" name="profissao" type="text" class="validate">
+          <label for="profissao" class="pink-text text-darken-4">Profissão</label>
+        </div>
+        <div class="col s2">
+          <mat-checkbox [(ngModel)]="usuario.dadosPublicos" class="validate" name="dadosPublicos">Dados Públicos</mat-checkbox>
+        </div>
+      </div>
+    </form>
+
+    <button class="btn waves-effect waves-light right pink darken-4" type="submit" (click)="atualizarUsuario()">Atualizar
+      <i class="material-icons right">send</i>
+    </button>
+  </div>
+</div>
