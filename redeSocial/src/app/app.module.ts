@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { UsuarioModule } from './usuario/usuario.module';
+import { PostagemModule } from './postagem/postagem.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { UsuarioModule } from './usuario/usuario.module';
     BrowserModule,
     UsuarioModule,
     AppRoutingModule,
+    PostagemModule,
     NoopAnimationsModule, BrowserAnimationsModule
   ],
   providers: [],

@@ -57,4 +57,12 @@ export class UsuarioService {
       }
   }
 
+  logar(usuario){
+    for (var i = this.usuarios.length - 1; i >= 0; i--){
+      if(this.usuarios[i].email==usuario.email && this.usuarios[i].senha==usuario.senha)
+        return true;
+    }
+
+    return false;
+  }
 }

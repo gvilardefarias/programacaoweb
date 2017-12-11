@@ -2,42 +2,36 @@
   <h2 class="center pink-text text-darken-4">Atualizar Usuário</h2>
 
   <div class="row">
-    <form class="col s12">
-      <div class="row">
-        <div class="input-field col s8">
-          <input [(ngModel)]="usuario.nome" name="nome" type="text" class="validate">
-          <label for="nome" class="pink-text text-darken-4">Nome</label>
-        </div>
-        <div class="input-field col s4">
-          <input [(ngModel)]="usuario.dataNascimento" name="dataNascimento" type="text" class="validate">
-          <label for="dataNascimento" class="pink-text text-darken-4">Data de Nascimento (DD/MM/AAAA)</label>
-        </div>
-      </div>
+    <mat-form-field class="col s8">
+      <input matInput [(ngModel)]="usuario.nome" type="text" placeholder="Nome">
+    </mat-form-field>
 
-      <div class="row">
-        <div class="input-field col s6">
-          <input [(ngModel)]="usuario.email" name="email" type="email" class="validate">
-          <label for="email" class="pink-text text-darken-4">Email</label>
-        </div>
-        <div class="input-field col s6">
-          <input [(ngModel)]="usuario.senha" name="senha" type="password" class="validate">
-          <label for="senha" class="pink-text text-darken-4">Senha</label>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="input-field col s10">
-          <input [(ngModel)]="usuario.profissao" name="profissao" type="text" class="validate">
-          <label for="profissao" class="pink-text text-darken-4">Profissão</label>
-        </div>
-        <div class="col s2">
-          <mat-checkbox [(ngModel)]="usuario.dadosPublicos" class="validate" name="dadosPublicos">Dados Públicos</mat-checkbox>
-        </div>
-      </div>
-    </form>
-
-    <button class="btn waves-effect waves-light right pink darken-4" type="submit" (click)="atualizarUsuario()">Atualizar
-      <i class="material-icons right">send</i>
-    </button>
+    <mat-form-field class="col s4">
+      <input matInput [matDatepicker]="picker" [(ngModel)]="usuario.dataNascimento" placeholder="Data de Nascimento">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
   </div>
+
+  <div class="row">
+    <mat-form-field class="col s6">
+      <input matInput [(ngModel)]="usuario.email" placeholder="Email" name="email" type="email">
+    </mat-form-field>
+
+    <mat-form-field class="col s6">
+      <input matInput [(ngModel)]="usuario.senha" placeholder="Senha" name="senha" type="password">
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <mat-form-field class="col s10">
+      <input matInput [(ngModel)]="usuario.profissao" placeholder="Profissão" name="profissao" type="text">
+    </mat-form-field>
+    
+    <mat-checkbox [(ngModel)]="usuario.dadosPublicos" name="dadosPublicos">Dados Públicos</mat-checkbox>
+  </div>
+
+  <button class="btn waves-effect waves-light right pink darken-4" type="submit" (click)="atualizarUsuario()">Atualizar
+    <i class="material-icons right">send</i>
+  </button>
 </div>
