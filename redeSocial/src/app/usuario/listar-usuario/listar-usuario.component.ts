@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Observable} from 'rxjs/Observable';
 import { Usuario } from '../../shared/model/usuario';
 import { UsuarioService } from '../../shared/service/usuario.service';
 
@@ -17,11 +18,26 @@ export class ListarUsuarioComponent implements OnInit {
   }
 
   obterUsuarios(){
-    this.usuarios = this.usuarioService.obterUsuarios();
+     this.usuarioService.obterUsuarios().subscribe(
+      user => {
+        this.usuarios = user;
+      }, erro => {
+        return false;
+      }
+    );
   }
 
-  removerUsuario(nome){
-    this.usuarioService.removerUsuario(nome);
+  removerUsuario(usuario){
+    this.usuarioService.removerUsuario(usuario.id).subscribe(
+      sucesso => {
+        console.log('Usuário ' + usuario.nome + ' removido com sucesso!');
+
+        this.obterUsuarios();
+      },
+      erro => {
+        console.log(erro);
+      }
+    );
 
     this.obterUsuarios();
   }

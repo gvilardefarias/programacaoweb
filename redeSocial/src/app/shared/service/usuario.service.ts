@@ -1,68 +1,50 @@
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
 import { Injectable } from '@angular/core';
 import { Usuario } from '../model/usuario';
 
 @Injectable()
 export class UsuarioService {
-  usuarios: Usuario[] = [];
-  usuario1: Usuario = new Usuario();
-  usuario2: Usuario = new Usuario();
-  usuario3: Usuario = new Usuario();
+  apiUsuarios = 'http://localhost:3000/usuarios';
+  user = null;
 
-  constructor() {
-      this.usuario1.nome = "Gustavo Vilar de Farias";
-      this.usuario1.email = "gvilardefarias@ymail.com";
-      this.usuario1.dataNascimento = "07/12/2000";
-      this.usuario1.senha = "123";
-      this.usuario1.profissao = "Programador";
-      this.usuarios.push(this.usuario1);
-
-      this.usuario2.nome = "José Marcos Paulino Araujo Junior";
-      this.usuario2.dataNascimento = "06/01/2001";
-      this.usuario2.profissao = "Empresario";
-      this.usuario2.dadosPublicos = true;
-      this.usuarios.push(this.usuario2);
-
-      this.usuario3.nome = "Lucas Alves Martins";
-      this.usuario3.dataNascimento = "15/09/2000";
-      this.usuario3.senha = "1321";
-      this.usuario3.profissao = "Programador";
-      this.usuario3.dadosPublicos = true;
-      this.usuarios.push(this.usuario3);      
+  constructor(private http: HttpClient) {
   }
 
   cadastrarUsuario(usuario: Usuario) {
-    this.usuarios.push(usuario);
-    
-    console.log("\nUsuario Cadastrado:")
-    console.log(usuario);
+    return this.http.post(this.apiUsuarios, usuario);
   }
 
-  atualizarUsuario(usuario: Usuario) {
-    for (var i = this.usuarios.length - 1; i >= 0; i--)
-      if(this.usuarios[i].nome==usuario.nome){
-          this.usuarios[i] = usuario;
-          break;
-      }
+  obterUsuarios(): Observable<Usuario[]>{
+      return this.http.get<Usuario[]>(this.apiUsuarios);
   }
 
-  obterUsuarios(){
-      return this.usuarios;
+  obterUsuario(idUsuario: number): Observable<Usuario> {
+    return this.http.get<Usuario>(`${this.apiUsuarios}/${idUsuario}`);
   }
 
-  removerUsuario(nome){
-    for (var i = this.usuarios.length - 1; i >= 0; i--)
-      if(this.usuarios[i].nome==nome){
-          this.usuarios.splice(i, 1);
-          break;
-      }
+  removerUsuario(idUsuario: number){
+    return this.http.delete(`${this.apiUsuarios}/${idUsuario}`);
+  }
+
+  atualizarUsuario(usuario: Usuario){
+    return this.http.patch(`${this.apiUsuarios}/${usuario.id}`, usuario);
   }
 
   logar(usuario){
-    for (var i = this.usuarios.length - 1; i >= 0; i--){
-      if(this.usuarios[i].email==usuario.email && this.usuarios[i].senha==usuario.senha)
-        return true;
-    }
+    this.obterUsuario(usuario.id).subscribe(
+      user => {
+        this.user = user;
+      }, erro => {
+        return false;
+      }
+    );
 
+    if(this.user.email==usuario.email && this.user.senha==usuario.senha)
+      return true;
+    
     return false;
   }
 }
+

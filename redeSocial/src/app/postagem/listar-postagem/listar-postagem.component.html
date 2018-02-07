@@ -16,6 +16,15 @@
             <span class="card-title">{{postagem.usuario.nome}}</span>
 
             <p class="white-text">{{postagem.texto}}</p>
+
+            <p></p>
+            <p></p>
+            
+            <h6><b>Curtidas:</b></h6>
+
+            <p *ngFor="let user of postagem.curtidas">{{user.nome}}</p>
+
+            <button class="btn waves-effect waves-light right blue darken-4" type="submit" (click)="curtirPostagem(postagem)">Curtir</button>
         </div>
       </div>
   </div>

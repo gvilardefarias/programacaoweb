@@ -3,7 +3,7 @@
     <div *ngFor="let usuario of usuarios" class="card-panel">
       <li>{{usuario.nome}}</li>
 
-      <a class="btn-floating waves-effect waves-light red right" (click)="removerUsuario(usuario.nome)"><i class="material-icons">remove</i></a>
+      <a class="btn-floating waves-effect waves-light red right" (click)="removerUsuario(usuario)"><i class="material-icons">remove</i></a>
     </div>
   </ul>
   

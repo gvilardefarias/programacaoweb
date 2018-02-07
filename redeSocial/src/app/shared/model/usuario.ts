@@ -1,11 +1,11 @@
 export class Usuario {
-  id: string;
+  id: number;
   nome: string;
   email: string;
   senha: string;
   idade: number;
   profissao: string;
-  amigosID: string[];
+  amigosID: number[];
   dataNascimento: string;
   dadosPublicos: boolean;
 }

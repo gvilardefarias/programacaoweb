@@ -1,0 +1,125 @@
+{
+  "usuarios": [
+    {
+      "nome": "Gustavo Vilar de Farias",
+      "email": "gvilardefarias@ymail.com",
+      "senha": "123",
+      "amigosID": [
+        2
+      ],
+      "id": 1
+    },
+    {
+      "nome": "José Marcos",
+      "email": "jrpaulino07@gmail.com",
+      "senha": "321",
+      "id": 2
+    }
+  ],
+  "postagens": [
+    {
+      "usuario": {
+        "nome": "José Marcos",
+        "email": "jrpaulino07@gmail.com",
+        "senha": "321",
+        "id": 2
+      },
+      "texto": "Podem ter a certeza de que não foi quando descobriu a América, mas sim quando estava a descobri-la, que Colombo se sentiu feliz.",
+      "id": 1,
+      "curtidas": [
+        {
+          "nome": "Gustavo Vilar de Farias",
+          "email": "gvilardefarias@ymail.com",
+          "senha": "123",
+          "amigosID": [
+            2
+          ],
+          "id": 1
+        },
+        {
+          "nome": "Gustavo Vilar de Farias",
+          "email": "gvilardefarias@ymail.com",
+          "senha": "123",
+          "amigosID": [
+            2
+          ],
+          "id": 1
+        }
+      ]
+    },
+    {
+      "texto": "Post",
+      "usuario": {
+        "nome": "Gustavo Vilar de Farias",
+        "email": "gvilardefarias@ymail.com",
+        "senha": "123",
+        "amigosID": [
+          2
+        ],
+        "id": 1
+      },
+      "id": 2,
+      "curtidas": [
+        {
+          "nome": "Gustavo Vilar de Farias",
+          "email": "gvilardefarias@ymail.com",
+          "senha": "123",
+          "amigosID": [
+            2
+          ],
+          "id": 1
+        }
+      ]
+    },
+    {
+      "texto": "gfdsg",
+      "usuario": {
+        "nome": "Gustavo Vilar de Farias",
+        "email": "gvilardefarias@ymail.com",
+        "senha": "123",
+        "amigosID": [
+          2
+        ],
+        "id": 1
+      },
+      "id": 3
+    },
+    {
+      "texto": "fsdfsd",
+      "usuario": {
+        "nome": "Gustavo Vilar de Farias",
+        "email": "gvilardefarias@ymail.com",
+        "senha": "123",
+        "amigosID": [
+          2
+        ],
+        "id": 1
+      },
+      "id": 4,
+      "curtidas": [
+        {
+          "nome": "Gustavo Vilar de Farias",
+          "email": "gvilardefarias@ymail.com",
+          "senha": "123",
+          "amigosID": [
+            2
+          ],
+          "id": 1
+        }
+      ]
+    },
+    {
+      "texto": "gfd",
+      "usuario": {
+        "nome": "Gustavo Vilar de Farias",
+        "email": "gvilardefarias@ymail.com",
+        "senha": "123",
+        "amigosID": [
+          2
+        ],
+        "id": 1
+      },
+      "id": 5
+    }
+  ]
+}
