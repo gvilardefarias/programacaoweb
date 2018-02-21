@@ -16,3 +16,4 @@ import { PostagemService } from '../shared/service/postagem.service';
   declarations: [ListarPostagemComponent]
 })
 export class PostagemModule { }
+

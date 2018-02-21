@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./logar-usuario.component.css']
 })
 export class LogarUsuarioComponent implements OnInit {
+  user: Usuario = new Usuario();
   usuario: Usuario = new Usuario();
 
   constructor(private usuarioService: UsuarioService, private router: Router) { }
@@ -17,9 +18,23 @@ export class LogarUsuarioComponent implements OnInit {
   }
 
   logar(){
-      if(this.usuarioService.logar(this.usuario))
-          this.router.navigate(['/postagem/lista']);
-
-      this.usuario = new Usuario();
+      this.usuarioService.obterUsuarios().subscribe(
+        users => {
+          for(var i=0;i<users.length;i++){
+            if(users[i].email==this.usuario.email){
+              console.log(users[i]);
+              this.user = users[i];
+            }
+          }
+        
+          if(this.user.email==this.usuario.email && this.user.senha==this.usuario.senha)
+            this.router.navigate(['/postagem/lista']);
+          else
+            this.usuario = new Usuario();
+        }, erro => {
+          return false;
+        }
+      );
   }
 }
+

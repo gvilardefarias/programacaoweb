@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, HostBinding} from '@angular/core';
 import { Usuario } from '../../shared/model/usuario';
 import { Postagem } from '../../shared/model/postagem';
 import { PostagemService } from '../../shared/service/postagem.service';
@@ -9,9 +9,11 @@ import { PostagemService } from '../../shared/service/postagem.service';
   styleUrls: ['./listar-postagem.component.css']
 })
 export class ListarPostagemComponent implements OnInit {
+
   usuario: Usuario = new Usuario();
   postagem: Postagem = new Postagem();
   postagens: Postagem[] = [];
+  color = {R:"255", G:"255", B:"255"};
 
   constructor(private postagemService: PostagemService) { 
     this.obterPostagens();
@@ -87,6 +89,10 @@ export class ListarPostagemComponent implements OnInit {
     }
   }
 
+  mudarCor(){
+    return "rgb("+this.color.R+", " + this.color.G + ", " + this.color.B + ")" ;
+    
+  } 
 }
 
 

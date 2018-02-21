@@ -1,31 +1,53 @@
-<div class="container">
-  <h2 class="center pink-text text-darken-4">Feed de Noticias</h2>
+<div [style.background-color]="mudarCor()">
+
+  <div class="container">
+    <h2 class="center pink-text text-darken-4">Feed de Noticias</h2>
+
+    <div class="row">
+        <mat-form-field class="col s12">
+          <textarea matInput [(ngModel)]="postagem.texto" placeholder="O que você está pensando?"></textarea>
+        </mat-form-field>
+        <button class="btn waves-effect waves-light right pink darken-4" type="submit" (click)="adicionarPostagem()">Postar
+          <i class="material-icons right">send</i>
+        </button>
+    </div>
+
+    <div *ngFor="let postagem of postagens" class="card blue-grey darken-1">
+        <div class="row">
+          <div class="card-content grey-text text-lighten-2">
+              <span class="card-title">{{postagem.usuario.nome}}</span>
+
+              <p class="white-text">{{postagem.texto}}</p>
+
+              <p></p>
+              <p></p>
+              
+              <h6><b>Curtidas:</b></h6>
+
+              <p *ngFor="let user of postagem.curtidas">{{user.nome}}</p>
+
+              <button class="btn waves-effect waves-light right blue darken-4" type="submit" (click)="curtirPostagem(postagem)">Curtir</button>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <h5>Digite a cor página: (R/G/B)</h5>
 
   <div class="row">
-      <mat-form-field class="col s12">
-        <textarea matInput [(ngModel)]="postagem.texto" placeholder="O que você está pensando?"></textarea>
-      </mat-form-field>
-      <button class="btn waves-effect waves-light right pink darken-4" type="submit" (click)="adicionarPostagem()">Postar
-        <i class="material-icons right">send</i>
-      </button>
+    <mat-form-field class="col s4">
+      <input matInput [(ngModel)]="color.R" placeholder="R" name="R" type="text">
+    </mat-form-field>
+
+    <mat-form-field class="col s4">
+      <input matInput [(ngModel)]="color.G" placeholder="G" name="G" type="text">
+    </mat-form-field>
+
+    <mat-form-field class="col s4">
+      <input matInput [(ngModel)]="color.B" placeholder="B" name="B" type="text">
+    </mat-form-field>
   </div>
 
-  <div *ngFor="let postagem of postagens" class="card blue-grey darken-1">
-      <div class="row">
-        <div class="card-content grey-text text-lighten-2">
-            <span class="card-title">{{postagem.usuario.nome}}</span>
-
-            <p class="white-text">{{postagem.texto}}</p>
-
-            <p></p>
-            <p></p>
-            
-            <h6><b>Curtidas:</b></h6>
-
-            <p *ngFor="let user of postagem.curtidas">{{user.nome}}</p>
-
-            <button class="btn waves-effect waves-light right blue darken-4" type="submit" (click)="curtirPostagem(postagem)">Curtir</button>
-        </div>
-      </div>
-  </div>
 </div>

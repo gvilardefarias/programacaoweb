@@ -31,20 +31,5 @@ export class UsuarioService {
   atualizarUsuario(usuario: Usuario){
     return this.http.patch(`${this.apiUsuarios}/${usuario.id}`, usuario);
   }
-
-  logar(usuario){
-    this.obterUsuario(usuario.id).subscribe(
-      user => {
-        this.user = user;
-      }, erro => {
-        return false;
-      }
-    );
-
-    if(this.user.email==usuario.email && this.user.senha==usuario.senha)
-      return true;
-    
-    return false;
-  }
 }
 
